@@ -12,3 +12,7 @@
   background-color: purple;
   font-size: 27px;
 }
+
+div:hover {
+  font-weight: bold;
+}
