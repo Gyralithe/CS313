@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+  <link rel="stylesheet" href="style06.css">
+  <title>AetherNet Shop</title>
+</head>
+
+<body>
+<header>
+  <a href="../index.html" style="margin-left:30px"><b>CS 213 Assignments</b></a>
+  <hr/>
+</header>
+
+<h2 style="margin-left:50px">Transaction Info:</h2>
+<h4 style="margin-left:50px">All fields are required</h4>
+
+<form onkeypress="checkKey(event)" onsubmit="return checkAll()">
+  <!-- use placeholder text inside fields instead? -->
+  <input name="first_name" class="text" placeholder="First Name">
+  <input name="last_name" class="text" placeholder="Last Name">
+  <br/>
+  <input name="phone" id="phone" class="text" placeholder="Phone (XXX-XXX-XXXX)" oninput="checkPhone()" 
+    onchange="validatePhone()">
+  <br/>
+  <p id="phone_alert" style="height:30px"></p>
+  <br/><br/>
+  <textarea name="address" class="text" placeholder="Address" style="height:80px;width:250px"></textarea><br/>
+  <br/><br/>
+  <table id="productTable">
+    <tr>
+      <th></th>
+      <th>Item / Description</th>
+      <th>Price</th>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="product" value="29.99"></td>
+      <td>Pink Bathrobe (used)</td>
+      <td>$29.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="product" value="99.99"></td>
+      <td>Rare Snowglobe (MINT condition)</td>
+      <td>$99.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="product" value=14.99></td>
+      <td>Smurf TV Tray</td>
+      <td>$14.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="product" value="7.99"></td>
+      <td>Pet Rock</td>
+      <td>$7.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="product" value="34.99"></td>
+      <td>Golf Bag (slightly damaged)</td>
+      <td>$34.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="product" value="49.99"></td>
+      <td>Set of Beanie Babies (new, with original tags)</td>
+      <td>$49.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="product" value="59.99"></td>
+      <td>One (1) Case of Vintage Tube Socks</td>
+      <td>$59.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="product" value="499.99"></td>
+      <td>Kleenex Tissue (USED BY DR. DRE!!!!)</td>
+      <td>$499.99</td>
+    </tr>
+  </table>
+  <br/>
+  <label for="total" style="margin-left:100px">$</label>
+  <input name="total" id="total" placeholder="0.00" readonly>
+  <br/><br/><br/>
+  <span>Card Type:</span>
+  <input type="radio" name="card_type" value="Visa">Visa
+  <input type="radio" name="card_type" value="Mastercard">Mastercard
+  <input type="radio" name="card_type" value="American Express">American Express
+  <br/><br/>
+  <input name="credit_card" id="credit_card" class="text" placeholder="Credit Card #" oninput="checkCardNumber()" 
+    onchange="validateCardNumber()" style="width:170px">
+  <input name="exp_date" id="exp_date" class="text" placeholder="Expiration Date (MM/YYYY)" oninput="checkExpDate()"
+    onchange="validateExpDate()" style="width:170px">
+  <button type="reset" name="reset" onclick="resetForm()" style="margin-left:30px">Reset</button>
+  <button type="submit" name="validate">Submit</button>
+  <p id="empty_alert"></p>
+  <br/>
+  <p id="card_alert"></p>
+  <p id="exp_alert"></p>
+  <br/><br/>
+  
+</form>
+
+<script src="js06.js"></script>
+</body>
+</html>

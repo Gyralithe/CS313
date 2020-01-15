@@ -1,0 +1,40 @@
+body {
+  background-color: #E0E0E0;
+}
+
+form {
+  margin-left: 30px;
+}
+
+input, textarea {
+  background-color: #AAC8FF;
+  padding:5px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 5px 20px;
+}
+
+td {
+  border-top: 1px solid;
+}
+
+[name="card_type"] {
+  margin-left: 10px
+}
+
+input[type="checkbox"] {
+  height: 20px;
+  width : 20px;
+}
+
+p {
+  color: red;
+  display: inline-block;
+  width: 185px;
+  margin-top: -1px;
+}

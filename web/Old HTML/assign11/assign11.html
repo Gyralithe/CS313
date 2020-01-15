@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+  <link rel="stylesheet" href="stylesheets/style11.css">
+  <link rel="stylesheet" href="stylesheets/style11_1.css">
+  <title>AetherNet Shop</title>
+</head>
+
+<body>
+<header>
+  <a href="../index.html" style="margin-left:30px"><b>CS 213 Assignments</b></a>
+  <hr/>
+</header>
+
+<h2 class="header">Transaction Info:</h2>
+<h4 class="header">All fields are required</h4>
+
+<form onkeypress="checkKey(event)" onsubmit="return checkAll()" action="assign11.php" method="POST">
+  <!-- use placeholder text inside fields instead? -->
+  <input name="first_name" class="text" placeholder="First Name">
+  <input name="last_name" class="text" placeholder="Last Name">
+  <br/>
+  <input name="phone" id="phone" class="text" placeholder="Phone (XXX-XXX-XXXX)" oninput="checkPhone()" 
+    onchange="validatePhone()">
+  <br/>
+  <p id="phone_alert" style="height:30px"></p>
+  <br/><br/>
+  <textarea name="address" class="text" placeholder="Address" style="height:80px;width:250px"></textarea><br/>
+  <br/><br/>
+  <table id="productTable">
+    <tr>
+      <th></th>
+      <th>Item / Description</th>
+      <th>Price</th>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="products[]" 
+            value='{"name":"Pink Bathrobe (used)","price":"29.99"}'></td>
+      <td name="productNames[]" value="Pink Bathrobe (used)">Pink Bathrobe (used)</td>
+      <td>$29.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="products[]" 
+            value='{"name":"Rare Snowglobe (MINT condition)","price":"99.99"}'></td>
+      <td name="productNames[]" value="">Rare Snowglobe (MINT condition)</td>
+      <td>$99.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="products[]" 
+            value='{"name":"Smurf TV Tray","price":"14.99"}'></td>
+      <td name="productNames[]">Smurf TV Tray</td>
+      <td>$14.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="products[]" 
+            value='{"name":"Pet Rock","price":"7.99"}'></td>
+      <td name="productNames[]">Pet Rock</td>
+      <td>$7.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="products[]" 
+            value='{"name":"Golf Bag (slightly damaged)","price":"34.99"}'></td>
+      <td name="productNames[]">Golf Bag (slightly damaged)</td>
+      <td>$34.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="products[]" 
+            value='{"name":"Set of Beanie Babies (new, with original tags)","price":"49.99"}'></td>
+      <td name="productNames[]">Set of Beanie Babies (new, with original tags)</td>
+      <td>$49.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="products[]" 
+            value='{"name":"One (1) Case of Vintage Tube Socks","price":"59.99"}'></td>
+      <td name="productNames[]">One (1) Case of Vintage Tube Socks</td>
+      <td>$59.99</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="products[]" 
+            value='{"name":"Kleenex Tissue (USED BY DR. DRE!!!!)","price":"499.99"}'></td>
+      <td name="productNames[]">Kleenex Tissue (USED BY DR. DRE!!!!)</td>
+      <td>$499.99</td>
+    </tr>
+  </table>
+  <br/>
+  <label for="total" id="total_label">$</label>
+  <input name="total" id="total" placeholder="0.00" readonly>
+  <br/><br/><br/>
+  <span>Card Type:</span>
+  <input type="radio" name="card_type" value="Visa" checked>Visa
+  <input type="radio" name="card_type" value="Mastercard">Mastercard
+  <input type="radio" name="card_type" value="American Express">American Express
+  <br/><br/>
+  <input name="credit_card" id="credit_card" class="text" placeholder="Credit Card #" oninput="checkCardNumber()" 
+    onchange="validateCardNumber()" style="width:170px">
+  <input name="exp_date" id="exp_date" class="text" placeholder="Expiration Date (MM/YYYY)" oninput="checkExpDate()"
+    onchange="validateExpDate()" style="width:170px">
+  <button type="reset" id="reset" name="reset" onclick="resetForm()">Reset</button>
+  <button type="submit" name="validate">Submit</button>
+  <br/>
+  <div id="grid">
+    <p id="card_alert"></p>
+    <p id="exp_alert"></p>
+    <p id="empty_alert"></p>
+  </div>
+  <br/><br/>
+  
+</form>
+
+<script src="js11.js"></script>
+</body>
+</html>

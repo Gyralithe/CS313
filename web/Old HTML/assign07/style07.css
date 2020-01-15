@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #E0E0E0;
+}
+
+header {
+  text-align: center;
+}
+
+#author {
+  margin-top: -1%;
+  margin-bottom: 2%;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0px;
+}
+
+h2 {
+  width: 100%;
+  text-align: center;
+}
+
+.pic {
+  width: 100%;
+  padding: 0% 5%;
+}
+
+.pic img {
+  width: 100%;
+}
+
+.info {
+  width: 100%;
+  padding: 0% 3%;
+}
+
+.stats {
+  width: 100%;
+  text-align: center;
+}
+
+footer div {
+  text-align: center;
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1150px) {
+  .game::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .pic {
+    width: 40%;
+    float: left;
+    padding: 0%;
+    padding-left: 5%;
+  }
+  
+  .pic img {
+    width: 90%;
+    padding-top: 3%;
+  }
+  
+  h2 {
+    width: initial;
+    text-align: left;
+    padding-left: 7%;
+    font-size: 2vw;
+  }
+  
+  .info {
+    width: 60%;
+    float: left;
+    padding: 0%;
+    padding-right: 0%;
+  }
+
+  .info p {
+    font-size: 14px;
+  }
+
+  .stats {
+    width: initial;
+    float: right;
+    margin-right: 5%;
+  }
+
+  ul {
+    padding-inline-start: 40px;
+  }
+
+  li {
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+@media only screen and (min-width: 1150px) {
+  .game::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .pic {
+    width: 40%;
+    float: left;
+    padding: 0%;
+    padding-left: 5%;
+  }
+  
+  .pic img {
+    max-width: 90%;
+  }
+  
+  h2 {
+    width: initial;
+    text-align: left;
+    padding-left: 7%;
+  }
+  
+  .info {
+    width: 40%;
+    float: left;
+    padding: 0%;
+    margin-top: -1%;
+  }
+  
+  .stats {
+    width: 20%;
+    float: left;
+    padding-right: 5%;
+  }
+
+  ul {
+    padding-inline-start: 40px;
+  }
+
+  li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+}

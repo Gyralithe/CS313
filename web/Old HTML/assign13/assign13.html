@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style13.css">
+  <title>Music Festival Registration</title>
+</head>
+
+<body>
+<header>
+  <h1 style="margin-left:5%">Music Festival Registration</h1>
+  <div style="margin-left:5%;margin-bottom:30px;">All fields are required.</div>
+</header>
+
+<form id="form" action="assign13.php">
+  <div id="item1" class="grid_item">
+    <h3>Performance Type:</h3>
+    <div id="radios">
+      <input type="radio" name="performance" value="Solo" onchange="checkRadios()" style="margin-left:3%">Solo
+      <input type="radio" name="performance" value="Duet" onchange="checkRadios()">Duet
+      <input type="radio" name="performance" value="Concerto" onchange="checkRadios()">Concerto
+    </div>
+    <div id="error_text_1" class="error"></div>
+  </div>
+
+  <div id="item2" class="grid_item">
+    <h3>Personal Info:</h3>
+    <input name="first_name" id="first_name" class="input_text" placeholder="First Name">
+    <input name="last_name" id="last_name" class="input_text" placeholder="Last Name">
+    <input name="student_id" id="student_id" class="input_text" placeholder="Student ID" oninput="checkID()">
+    <div id="error_text_2" class="error"></div>
+  </div>
+
+  <div id="item3" class="grid_item" style="display:none">
+    <h3>Personal Info (2nd Student):</h3>
+    <input name="first_name_2" id="first_name_2" class="input_text_2" placeholder="First Name">
+    <input name="last_name_2" id="last_name_2" class="input_text_2" placeholder="Last Name">
+    <input name="student_id_2" id="student_id_2" class="input_text_2" placeholder="Student ID" id="student_id_2" oninput="checkID2()">
+    <div id="error_text_3" class="error"></div>
+  </div>
+
+  <div id="item4" class="grid_item">
+    <h3>Performance Details:</h3>
+    <select name="skill" id="skill" class="dropbox">
+      <option value="empty">Skill Level...</option>
+      <option value="Beginner">Beginner</option>
+      <option value="Intermediate">Intermediate</option>
+      <option value="Pre-Advanced">Pre-Advanced</option>
+      <option value="Advanced">Advanced</option>
+    </select>
+    <input name="instrument" id="instrument" class="input_text" placeholder="Instrument">
+  </div>
+
+  <div id="item5" class="grid_item">
+    <h3>Location:</h3>
+    <select name="location" id="location" class="dropbox">
+      <option value="empty">Building...</option>
+      <option value="Snow">Snow</option>
+      <option value="Austin">Austin</option>
+      <option value="Hart">Hart</option>
+    </select>
+    <input name="room" id="room" class="input_text" placeholder="Room (example: 330B)">
+    <input name="time_slot" id="time" class="input_text" placeholder="Time (example: 9:30 AM)">
+    <div id="error_text_4" class="error"></div>
+    <div id="error_text_5" class="error"></div>
+  </div>
+
+  <div id="item6">
+    <div id="buttons">
+      <button type="reset" name="clear">Clear</button>
+      <button type="button" name=display onclick="displayOnly()">Display</button>
+      <button type="button" name="register" onclick="validate()" id="register">Register</button>
+    </div>
+    <div id="error_text" class="error"></div>
+  </div>
+</form>
+
+<div id="response"></div>
+
+<footer>
+  <hr/>
+  <a href="../index.html" style="margin-left:5%"><b>CS 213 Assignments</b></a>
+</footer>
+
+<script src="js13.js"></script>
+</body>
+</html>

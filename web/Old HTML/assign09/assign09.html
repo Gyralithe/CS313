@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style09.css">
+  <title>Assignment #9 (Tim Womble)</title>
+</head>
+
+<body>
+
+<div id="grid">
+  <div class="grid_item">
+    <h2>File Retrieval</h2>
+    <div>Choose Country:</div>
+    <select id="dropbox">
+      <option value="usa.txt">USA</option>
+      <option value="canada.txt">Canada</option>
+      <option value="mexico.txt">Mexico</option>
+      <option value="russia.txt">Russia</option>
+    </select>
+    <button type="button" id="button1" onclick="requestFile(true, displayTXT)">Get File</button>
+  </div>
+
+  <div class="grid_item">
+    <h2>JSON Parsing</h2>
+    <input id="text_field" placeholder="Filename..."/>
+    <div id="error" style="color:red;"><br/></div>
+    <button type="button" id="button2" onclick="requestFile(false, displayJSON)">Get JSON</button>
+  </div>
+
+  <div class="grid_item">
+    <table id="display" style="height:270px"></table>
+  </div>
+  
+  <div id="JSON_display" class="gird_item"></div>
+</div>
+
+
+<!-- SCRIPT HERE -->
+
+<script>
+function requestFile(isTXT, cf) {
+  var sel = document.getElementById("dropbox");
+  var index = sel.selectedIndex;
+  
+  var url = "error";
+  if (isTXT == true) {
+    url = sel.options[index].value;
+  } else {
+    if (document.getElementById("text_field").value != "")
+      url = "JSON/" + document.getElementById("text_field").value;
+  }
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("error").innerHTML = "<br/>";
+      cf(this);
+    }
+    else if (this.status == 404) {
+      document.getElementById("error").innerHTML = "File not found.";
+      document.getElementById("JSON_display").innerHTML = "";
+    }
+  };
+  xhttp.open("GET", url, true);
+  // xhttp.open("GET", "http://localhost:7013/~cs213/" + url, true);
+  // xhttp.open("GET", "http://157.201.194.254/~cs213/" + url, true);
+  xhttp.send();
+}
+
+function displayTXT(file) {
+  var string = file.responseText;
+  var textArray = string.split(/\s/);
+  var count = 0;
+  var count2 = 0;
+  var text = "<tr><th>City</th><th>Population</th></tr>";
+  for (var i = 0; i < textArray.length; i++) {
+    if ((/[a-z|A-Z]+/).test(textArray[i])) {
+      text += ("<tr><td>" + textArray[i]);
+      if ((/[a-z|A-Z]+/).test(textArray[i + 1])) {
+        text += " " + textArray[i + 1];
+        i = i + 1;
+      }
+      text += "</td>"
+    } else if ((/\d+/).test(textArray[i])) {
+      text += ("<td> " + textArray[i] + "</td><tr/>");
+    }
+  }
+  document.getElementById("display").innerHTML = text;
+}
+
+function displayJSON(file) {
+  var json = JSON.parse(file.responseText);
+  var text = "";
+  for (var i = 0; i < json.students.length; i++) {
+    text += "<div>";
+    text += "<div>" + json.students[i].first + " " + json.students[i].last + "</div>";
+    text += "<div>" + json.students[i].address.city + ", " + json.students[i].address.state + " " + json.students[i].address.zip + "</div>";
+    text += "<div>Major: " + json.students[i].major + "</div>";
+    text += "<div>GPA: " + json.students[i].gpa + "</div>";
+    text += "</div>";
+  }
+  document.getElementById("JSON_display").innerHTML = text;
+}
+</script>
+
+</body>
+</html>

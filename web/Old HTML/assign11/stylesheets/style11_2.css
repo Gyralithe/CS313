@@ -1,0 +1,15 @@
+form {
+  margin-left: 30px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 5px 20px;
+}
+
+td {
+  border-top: 1px solid;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style12.css">
+  <title>Mileage Calculator</title>
+</head>
+
+<body>
+<header>
+  <a href="../index.html" style="margin-left:30px"><b>CS 213 Assignments</b></a>
+  <hr/>
+</header>
+
+<form action="">
+  <input name="startCity" id="startCity" placeholder="Starting City"/>
+  <input name="startState" id="startState" placeholder="Starting State"/>
+  <input name="endCity" id="endCity" placeholder="Destination City"/>
+  <input name="endState" id="endState" placeholder="Destination State"/>
+  <button type="button" onclick="validate()">Calculate</button>
+  <p id="error" style="display:inline"></p>
+</form>
+
+<div><p id="response"></p></div>
+
+<script>
+function validate() {
+  var startCity = document.getElementById("startCity").value;
+  var startState = document.getElementById("startState").value;
+  var endCity = document.getElementById("endCity").value;
+  var endState = document.getElementById("endState").value;
+
+  if (startCity.value == "" | startState.value == "" | endCity == "" | endState == "") {
+    document.getElementById("error").innerHTML = "Please fill all fields!";
+    document.getElementById("response").innerHTML = "";
+  }
+  else if (!(/^([A-Z][A-Z])$/.test(startState))) {
+    document.getElementById("error").innerHTML = "Please use 2-letter state codes!";
+    document.getElementById("startState").style.backgroundColor = "#FFB4B5";
+    document.getElementById("response").innerHTML = "";
+  }
+  else if (!(/^([A-Z][A-Z])$/.test(endState))) {
+    document.getElementById("error").innerHTML = "Please use 2-letter state codes!";
+    document.getElementById("endState").style.backgroundColor = "#FFB4B5";
+    document.getElementById("response").innerHTML = "";
+  }
+  else {
+    document.getElementById("error").innerHTML = "";
+    document.getElementById("startState").style.backgroundColor = "#AAC8FF";
+    document.getElementById("endState").style.backgroundColor = "#AAC8FF";
+    CGIrequest();
+  }
+}
+
+function CGIrequest() {
+  var url = "/cgi-bin/ercanbracks/mileage/mileageAjaxJSON";
+  url += "?startCity=" + document.getElementById("startCity").value;
+  url += "&startState=" + document.getElementById("startState").value;
+  url += "&endCity=" + document.getElementById("endCity").value;
+  url += "&endState=" + document.getElementById("endState").value;
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      readJSON(this.responseText);
+    }
+  };
+  xhttp.open("GET", url, true);
+  xhttp.send();
+}
+
+function readJSON(responseString) {
+  var trip = JSON.parse(responseString).trip;
+  if (trip.miles == "Unknown") {
+    document.getElementById("response").innerHTML = "The distance from " + trip.startcity + ", "
+      + trip.startstate + " to " + trip.endcity + ", " + trip.endstate + " is unknown.";
+  }
+  else {
+    var text = "";
+    text = "The distance from " + trip.startcity + ", " + trip.startstate + " to " + trip.endcity + ", " 
+      + trip.endstate + " is " + trip.miles + " miles.\n";
+    text += "The trip can be made by ";
+    var index = trip.tmode.length;
+    for(var i = 0; i < (index - 1); i++) {
+      text += trip.tmode[i] + ", ";
+    }
+    text += "or " + trip.tmode[index - 1] + ".";
+
+    document.getElementById("response").innerHTML = text;
+  }
+}
+</script>
+</body>
+</html>

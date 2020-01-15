@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style05.css">
+  <title>Mortgage Payment Calculator</title>
+</head>
+
+<body>
+<a href="../index.html"><b>CS 213 Assignments</b></a>
+<h1>Mortgage Payment Calculator</h1>
+
+<form onkeypress="checkKey(event)">
+  <label for="apr">APR:</label><br/>
+  <input id="apr" autocomplete="off">%<br/>
+  <div id="error1"><br/></div>
+  <br/>
+  <label for="term">Loan Term (in years):</label><br/>
+  <input id="term" autocomplete="off"><br/>
+  <div id="error2"><br/></div>
+  <br/>
+  <label for="amount">Loan Amount:<br/>$</label>
+  <input id="amount" autocomplete="off"><br/>
+  <div id="error3"><br/></div>
+  <br/>
+  <label for="payment">Monthly Payment:<br/>$</label>
+  <input id="payment" readonly><br/>
+  <br/>
+  <div>
+    <button type="reset" onclick="resetForm()">Clear Fields</button>
+    <button type="button" onclick="validate()">Calculate</button>
+  </div>
+</form>
+
+<script>
+function checkKey(event){
+  var k = event.key;
+  if (k == "Enter") {
+    validate();
+  }
+}
+
+function validate() {
+  var apr = document.getElementById("apr");
+  var term = document.getElementById("term");
+  var amount = document.getElementById("amount");
+  var payment = document.getElementById("payment");
+
+  var formValidated = true;
+
+  if (amount.value == "") {
+    formValidated = false;
+    payment.style.backgroundColor = "#FFB4B5";
+    payment.value = "";
+    document.getElementById("error3").innerHTML = "Required field";
+    amount.focus();
+  } else if ((0 > amount.value) || !(Number.isFinite(Number(amount.value)))) {
+    formValidated = false;
+    payment.style.backgroundColor = "#FFB4B5";
+    payment.value = "";
+    document.getElementById("error3").innerHTML = "Value must be a positive number (no symbols)";
+    amount.focus();
+  } else {
+    document.getElementById("error3").innerHTML = "<br/>";
+  }
+
+  if (term.value == "") {
+    formValidated = false;
+    payment.style.backgroundColor = "#FFB4B5";
+    payment.value = "";
+    document.getElementById("error2").innerHTML = "Required field";
+    term.focus();
+  } else if ((0 > term.value || term.value > 40) || !(Number.isFinite(Number(term.value)))) {
+    formValidated = false;
+    payment.style.backgroundColor = "#FFB4B5";
+    payment.value = "";
+    document.getElementById("error2").innerHTML = "Value must be a number (no symbols) between 0 and 40";
+    term.focus();
+  } else {
+    document.getElementById("error2").innerHTML = "<br/>";
+  }
+
+  if (apr.value == "") {
+    formValidated = false;
+    payment.style.backgroundColor = "#FFB4B5";
+    payment.value = "";
+    document.getElementById("error1").innerHTML = "Required field";
+    apr.focus();
+  } else if ((0 > apr.value || apr.value > 25.00) || !(Number.isFinite(Number(apr.value)))) {
+    formValidated = false;
+    payment.style.backgroundColor = "#FFB4B5";
+    payment.value = "";
+    document.getElementById("error1").innerHTML = "Value must be a number (no symbols) between 0 and 25.00";
+    apr.focus();
+  } else {
+    document.getElementById("error1").innerHTML = "<br/>";
+  }
+
+  if (formValidated == true)
+    calculate();
+}
+
+function calculate() {
+  var apr = document.getElementById("apr").value;
+  var term = document.getElementById("term").value;
+  var amount = document.getElementById("amount").value;
+  var payment = document.getElementById("payment");
+
+  var r = (apr / 100 / 12);
+  var n = (term * 12);
+  var result = (amount * r * ((1 + r) ** n)) / (((1 + r) ** n) - 1);
+
+  /* var result = (amount * (apr / 12) * ((1 + (apr / 12)) ** (term * 12))) / 
+  (((1 + (apr / 12)) ** (term * 12)) - 1); */
+
+  payment.style.backgroundColor = "#AAC8FF";
+  payment.value = result.toFixed(2);
+}
+
+function resetForm() {
+  document.getElementById("payment").style.backgroundColor = "#AAC8FF";
+
+  document.getElementById("error1").innerHTML = "<br/>";
+  document.getElementById("error2").innerHTML = "<br/>";
+  document.getElementById("error3").innerHTML = "<br/>";
+
+  document.getElementById("apr").focus();
+}
+</script>
+
+</body>
+</html>

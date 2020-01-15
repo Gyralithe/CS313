@@ -1,0 +1,16 @@
+<?php 
+$apr = $_GET["apr"];
+$term = $_GET["term"];
+$amount = $_GET["amount"];
+
+$r = ($apr / 100 / 12);
+$n = ($term * 12);
+$result = ($amount * $r * ((1 + $r) ** $n)) / (((1 + $r) ** $n) - 1);
+
+/*
+  FROM ORIGINAL JAVASCRIPT
+  var r = (apr / 100 / 12);
+  var n = (term * 12);
+  var result = (amount * r * ((1 + r) ** n)) / (((1 + r) ** n) - 1);
+*/
+?>

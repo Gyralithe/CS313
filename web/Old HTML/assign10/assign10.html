@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style10.css">
+  <title>Assignment #10 (Tim Womble)</title>
+</head>
+
+<body>
+
+<a href="mortgage.html"><b>Mortgage Calculator</b></a>
+<span> || </span>
+<a href="../index.html"><b>CS 213 Assignments</b></a>
+<h2>Click button to get listing...</h2>
+<button type="button" onclick="getListing()">Request</button>
+<div id="JSON">
+  <table id="table"></table>
+</div>
+
+<script>
+function getListing() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      decodeJSON(this.responseText);
+    }
+  };
+  xhttp.open("GET", "assign10.php", true);
+  xhttp.send();
+}
+
+function decodeJSON(JSONstring) {
+  var array = JSON.parse(JSONstring);
+  var table = document.getElementById("table");
+  var insertString = "<tr><th>Filename</th><th>Type</th><th>CWD</th><th>Action</th></tr>";
+  var pathString = "";
+  
+  for (var i = 0; i < array.length; i++) {
+    insertString += "<tr><td>" + array[i].fileName + "</td><td>" + array[i].fileType + "</td>";
+    insertString += "<td>" + array[i].cwd + "</td>";
+    pathString = "\'" + array[i].fileName + "\'";
+    insertString += "<td><button onclick =\"window.location.assign(" + pathString + ")\">Go To</button></td></tr>";
+  }
+
+  document.getElementById("table").innerHTML = insertString;
+  // document.getElementById("JSON").innerHTML = JSONstring;
+}
+</script>
+
+</body>
+</html>
