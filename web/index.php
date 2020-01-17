@@ -16,21 +16,14 @@
     <hr/>
   </header>
 
-  <!-- <script>
-    var hyperlinks = document.getElementsByTagName("a");
-    for (link in hyperlinks) {
-      link.addEventListener("onmouseover", showBox(this));
-      link.addEventListener("onmouseout", hideBox(this));
-    }
+  <div>
+    <button onclick="getPHPdata()">Server Info</button>
+    <hr/>
+  </div>
 
-    function showBox(element) {
-      element.style.backgroundColor = "#AAC8FF";
-    }
-
-    function hideBox(element) {
-      element.style.backgroundColor = "transparent";
-    }
-  </script> -->
+  <script>
+  
+  </script>
 
 </body>
 </html>
