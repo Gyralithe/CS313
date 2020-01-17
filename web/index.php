@@ -38,7 +38,7 @@
       serverBlock.innerHTML += "<div>Remote Port: " + "<?=$_SERVER['REMOTE_PORT']?>" + "</div>"
       serverBlock.innerHTML += "<div>Request Method: " + "<?=$_SERVER['REQUEST_METHOD']?>" + "</div>"
       serverBlock.innerHTML += "<div>Request Time: " + "<?=$_SERVER['REQUEST_TIME']?>" + "</div>"
-      serverBlock.style.displayTemplateColumns = " 50% 50%;";
+      serverBlock.style.cssText += "grid-template-columns: 50% 50%"
     }
   </script>
 
