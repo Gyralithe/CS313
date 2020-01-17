@@ -30,6 +30,17 @@
 
   <hr/>
 
+  <div id="favorites">
+    <div>
+      <img src="Pictures/dqviii.jpg" alt="Dragon Quest VIII: Journey of the Cursed King"/>
+      <div>Favorite Video Game: Dragon Quest VIII</div>
+    </div>
+    <div>
+      <img src="Pictures/LotR Books.jpg" alt="The Hobbit & The Lord of the Rings"/>
+      <div>Favorite Book(s): The Lord of the Rings</div>
+    </div>
+  </div>
+
   <script>
     // SERVER_NAME, REQUEST_METHOD, REQUEST_TIME, REMOTE_PORT
     function getPHPdata() {
