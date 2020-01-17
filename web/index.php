@@ -11,7 +11,7 @@
   <header>
     <h1>Homepage</h1>
     <a href="assignments.html"><b>Assignments Directory</b></a>
-    ||
+    <span> || </span>
     <a href="index_info.php">PHP Info</a>
     <hr/>
   </header>

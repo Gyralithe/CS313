@@ -11,7 +11,7 @@
 
 <body>
 <header>
-  <a href="../index.html" style="margin-left:30px"><b>CS 213 Assignments</b></a>
+  <a href="../../assignments.html" style="margin-left:30px"><b>CS 213 Assignments</b></a>
   <hr/>
 </header>
 

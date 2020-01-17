@@ -28,7 +28,7 @@ $result = (($amount * $r * pow((1 + $r), $n)) / (pow((1 + $r), $n) - 1));
 <body>
 <a href="assign10.html"><b>Assignment 10</b></a>
 <span> || </span>
-<a href="../index.html"><b>CS 213 Assignments</b></a>
+<a href="../../assignments.html"><b>CS 213 Assignments</b></a>
 <h1>Mortgage Payment Calculator</h1>
 
 <div>
