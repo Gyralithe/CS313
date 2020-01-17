@@ -8,7 +8,11 @@
 </head>
 
 <body>
-<h1>Homepage</h1>
+  <header>
+    <h1>Homepage</h1>
+    <a href="assignments.html"><b>Assignments Directory</b></a>
+    <hr/>
+  </header>
 </body>
 
 </html>
