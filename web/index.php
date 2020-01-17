@@ -16,7 +16,7 @@
     <hr/>
   </header>
 
-  <script>
+  <!-- <script>
     var hyperlinks = document.getElementsByTagName("a");
     for (link in hyperlinks) {
       link.addEventListener("onmouseover", showBox(this));
@@ -30,7 +30,7 @@
     function hideBox(element) {
       element.style.backgroundColor = "transparent";
     }
-  </script>
+  </script> -->
 
 </body>
 </html>

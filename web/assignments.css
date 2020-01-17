@@ -18,3 +18,8 @@ body {
 ul {
   padding-left: 0px;
 }
+
+li:hover {
+  border-radius: 10px;
+  background-color: #AAC8FF;
+}
