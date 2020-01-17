@@ -9,7 +9,7 @@
 
 <body>
   <header>
-    <h1>Homepage</h1>
+    <h1>Homepage for CS313</h1>
     <a href="assignments.html"><b>Assignments Directory</b></a>
     <span> || </span>
     <a href="index_info.php">PHP Info</a>
@@ -25,7 +25,7 @@
 
   <div id="personal_info">
     <img src="me.jpg" alt="Tim Womble, circa 2015"/>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>My name is Tim Womble. I'm 24 years old and this is my 5th semester at BYUI. My current major is Computer Science, though I was leaning towards Computer Engineering for a while. Actually, just this semester I've become fairly interested in UI development through the Human-Computer Interactions course I'm taking. <br/> I'm from Craig, CO (look it up), though I've lived in Michigan and Texas before and I was born in American Fork, UT. I'm the oldest of 5 children and my sister Jordan is also here studying at BYUI, majoring in Zoology.</p>
   </div>
 
   <hr/>
