@@ -12,3 +12,9 @@ a:hover {
   padding-right: 10px;
   background-color: #AAC8FF;
 }
+
+#server_info {
+  display: grid;
+  text-align: center;
+  height: 200px;
+}

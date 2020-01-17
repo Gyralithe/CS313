@@ -16,13 +16,21 @@
     <hr/>
   </header>
 
-  <div>
+  <div id="server_info">
     <button onclick="getPHPdata()">Server Info</button>
     <hr/>
   </div>
 
   <script>
-  
+    // SERVER_NAME, REQUEST_METHOD, REQUEST_TIME, REMOTE_PORT
+    function getPHPdata() {
+      serverBlock = document.getElementById("server_info");
+      serverBlock.innerHTML = "<div>Server Name: " + "<?=echo $_SERVER['SERVER_NAME']?>" + "</div>"
+      serverBlock.innerHTML += "<div>Remote Port: " + "<?=echo $_SERVER['REMOTE_PORT']?>" + "</div>"
+      serverBlock.innerHTML += "<div>Request Method: " + "<?=echo $_SERVER['REQUEST_METHOD']?>" + "</div>"
+      serverBlock.innerHTML += "<div>Request Time: " + "<?=echo $_SERVER['REQUEST_TIME']?>" + "</div>"
+      serverBlock.style.displayTemplateColumns = " 50% 50%;";
+    }
   </script>
 
 </body>
