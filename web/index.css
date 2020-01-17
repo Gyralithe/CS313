@@ -18,7 +18,7 @@ button {
   width: 100px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 #server_info {
@@ -37,6 +37,8 @@ button {
   display: grid;
   grid-template-columns: 50% 50%;
   text-align: center;
+  margin-top: 75px;
+  margin-bottom: 75px;
 }
 
 img {
