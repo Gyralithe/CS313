@@ -15,6 +15,7 @@
     <a href="index_info.php">PHP Info</a>
     <hr/>
   </header>
+  <div>Testing for GitHub and Heroku</div>
 </body>
 
 <!-- Testing for GitHub and Heroku -->
