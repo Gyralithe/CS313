@@ -15,6 +15,22 @@
     <a href="index_info.php">PHP Info</a>
     <hr/>
   </header>
-</body>
 
+  <script>
+    var hyperlinks = document.getElementsByTagName("a");
+    for (link in hyperlinks) {
+      link.addEventListener("onmouseover", showBox(this));
+      link.addEventListener("onmouseout", hideBox(this));
+    }
+
+    function showBox(element) {
+      element.style.backgroundColor = "#AAC8FF";
+    }
+
+    function hideBox(element) {
+      element.style.backgroundColor = "transparent";
+    }
+  </script>
+
+</body>
 </html>
