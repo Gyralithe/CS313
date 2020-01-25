@@ -25,7 +25,7 @@
 
 <script>
   function displayCart() {
-    cart = json_decode(<?php echo json_encode($_SESSION["shoppingCart"])?>);
+    cart = JSON.parse(<?php echo json_encode($_SESSION["shoppingCart"])?>);
     cart.forEach(displayItem);
   }
 
