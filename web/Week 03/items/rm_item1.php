@@ -7,5 +7,5 @@
     }
     $index++;
   }
-  unset($_SESSION["shoppingCart"]);
+  unset($_SESSION["shoppingCart"][0]);
 ?>
