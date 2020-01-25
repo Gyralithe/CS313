@@ -32,7 +32,7 @@
 cartQuantity = <?php echo count($_SESSION["shoppingCart"])?>;
 
 function addItem(number) {
-  var request = "add_item" + number + ".php";
+  var request = "items/add_item" + number + ".php";
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
