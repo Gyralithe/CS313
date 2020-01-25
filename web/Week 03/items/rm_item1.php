@@ -7,5 +7,6 @@
       break;
     }
   }
-  unset($_SESSION["shoppingCart"][$index])
+  unset($_SESSION["shoppingCart"][$index]);
+  session_unset();
 ?>
