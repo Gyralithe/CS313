@@ -1,6 +1,8 @@
 <?php
   session_start();
-  $_SESSION["shoppingCart"] = array();
+  if(!isset($_SESSION["shoppingCart"])) {
+    $_SESSION["shoppingCart"] = array();
+  }
 ?>
 
 <!DOCTYPE html>
@@ -9,24 +11,27 @@
 <head>
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="stylesheets/style_master.css">
-  <title>Aether Shop</title>
+  <title>AetherNet Shop</title>
 </head>
 
 <body>
 
 <header>
-  <h1>AetherNet Shop</h1>
+  <span><h1>AetherNet Shop</h1></span>
+  <span style="margin-right:50px;"><button id="cartButton" onclick="window.location.href = 'viewCart.php';">
+    View Cart</button></span>
   <hr/>
-  <button id="cartButton" onclick="window.location.href = 'viewCart.php';">View Cart</button>
 </header>
 
 <ul>
   <hr/>
   <li>
-    <span>One (1) egg</span>
+    <span>One (1) egg | $1.99</span>
     <button onclick="addItem(1)">Add to Cart</button>
+    <hr/>
   </li>
 </ul>
+
 
 <script>
 cartQuantity = <?php echo count($_SESSION["shoppingCart"])?>;

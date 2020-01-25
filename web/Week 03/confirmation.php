@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="stylesheets/style_master.css">
-  <title>Aether Shop</title>
+  <title>AetherNet Shop</title>
 </head>
 
 <body>
