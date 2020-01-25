@@ -25,7 +25,7 @@
 
 <script>
   function displayCart() {
-    document.getElementById("cartDisplay").innerHTML += "";
+    document.getElementById("cartDisplay").innerHTML += "</hr>";
     cart = <?php echo json_encode($_SESSION["shoppingCart"])?>;
     cart.forEach(displayItem);
   }
