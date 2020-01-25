@@ -1,5 +1,6 @@
 <?php
   session_start();
+  $_SESSION["shoppingCart"] = array();
 ?>
 
 <!DOCTYPE html>
@@ -12,9 +13,38 @@
 </head>
 
 <body>
-<h1>Hello World!</h1>
-<!-- This was added through VSCode -->
-</body>
+
+<header>
+  <h1>AetherNet Shop</h1>
+  <hr/>
+  <button id="cartButton" onclick="window.location.href = 'viewCart.php';">View Cart</button>
+</header>
+
+<ul>
+  <hr/>
+  <li>
+    <span>One (1) egg</span>
+    <button onclick="addItem(1)">Add to Cart</button>
+  </li>
+</ul>
+
+<script>
+cartQuantity = <?php echo count($_SESSION["shoppingCart"])?>;
+
+function addItem(number) {
+  var request = "add_item" + number + ".php";
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        cartQuantity++;
+        document.getElementById("cartButton").innerHTML = "View Cart (" + cartQuantity + ")";
+    }
+  };
+  xhttp.open("POST", request, true);
+  xhttp.send();
+}
+
+</script>
 
 <!-- 
   Ideas:
@@ -25,4 +55,5 @@
   Or can I make each button "submit a form" to one PHP file without shifting pages?
 -->
 
+</body>
 </html>

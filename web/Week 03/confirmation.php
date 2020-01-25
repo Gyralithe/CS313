@@ -12,8 +12,11 @@
 </head>
 
 <body>
-<h1>Hello World!</h1>
-<!-- This was added through VSCode -->
-</body>
 
+<header>
+  <h1>AetherNet Shop</h1>
+  <hr/>
+</header>
+
+</body>
 </html>
