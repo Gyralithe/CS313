@@ -8,5 +8,4 @@
     }
   }
   unset($_SESSION["shoppingCart"][$index]);
-  session_unset();
 ?>
