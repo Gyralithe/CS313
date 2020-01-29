@@ -56,4 +56,10 @@
 </body>
 </html>
 
-<!-- DATABASE_URL='postgres://pwsxizfirgaqoi:2cafd59bf9b0a7dd40e798e8952ab5b2f8f099ae9b8f531f78bcca381ec9aadd@ec2-52-71-122-102.compute-1.amazonaws.com:5432/da8a2pin4pjpod' -->
+<!-- 
+  DATABASE_URL='postgres://pwsxizfirgaqoi:2cafd59bf9b0a7dd40e798e8952ab5b2f8f099ae9b8f531f78bcca381ec9aadd@ec2-52-71-122-102.compute-1.amazonaws.com:5432/da8a2pin4pjpod' 
+
+  also:
+    pgweb --url postgres://pwsxizfirgaqoi:2cafd59bf9b0a7dd40e798e8952ab5b2f8f099ae9b8f531f78bcca381ec9aadd@ec2-52-71-122-102.compute-1.amazonaws.com:5432/da8a2pin4pjpod
+
+-->
