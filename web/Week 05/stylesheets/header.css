@@ -1,5 +1,5 @@
 * {
-  color: #bb9900;
+  color: #e0b700;
 }
 
 div {
@@ -9,4 +9,8 @@ div {
 a {
   text-decoration: none;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#tabs {
+  font-size: 20px;
 }
